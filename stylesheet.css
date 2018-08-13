@@ -1,4 +1,16 @@
+.my_projects, h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.background {
+  width: 100%;
+}
+
 .my_projects {
   color: red;
-  font-family: "Lucinda Handwriting", serif;
+}
+
+.h1 {
+  color: black;
 }
