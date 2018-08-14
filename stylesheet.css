@@ -12,5 +12,8 @@
 }
 
 .h1 {
-  color: black;
+  color: red;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
 }
