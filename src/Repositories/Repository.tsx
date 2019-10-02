@@ -16,7 +16,15 @@ export default class Repository extends React.Component<RepositoryProps> {
     @observable private selected = false;
 
     open = () => {
-        !this.props.model.private && window.open(`https://github.com/samwilkins333/${this.props.model.name}`);
+        !this.isPrivate && window.open(`https://github.com/samwilkins333/${this.props.model.name}`);
+    }
+
+    public get isPrivate() {
+        return this.props.model.private
+    }
+
+    public get id() {
+        return this.props.model.id;
     }
 
     private select = (e: React.PointerEvent<HTMLDivElement>) => {

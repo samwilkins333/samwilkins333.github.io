@@ -5,7 +5,7 @@ import MenuBar from '../MenuBar/MenuBar';
 import { action, observable } from 'mobx';
 import { ColorScheme } from "../ColorScheme";
 import Repositories from '../Repositories/Repositories';
-import { ImageMapping } from '../Assets/Assets';
+import { ImageMapping, Downloads } from '../Assets/Assets';
 import github from "../Assets/github.png";
 import download from "../Assets/download.png"
 import me from "../Assets/samw.png";
@@ -53,6 +53,37 @@ export default class Main extends React.Component<{}> {
         return <div className={'meta-span'} onClick={() => window.open(url)}>{url}</div>
     }
 
+    potentiallyDownloadable = () => {
+        let downloadable = false;
+        if (this.selectedRepository) {
+            downloadable = Downloads.has(this.selectedRepository.id)
+        }
+        const image = (
+            <img
+                className={'link-button'}
+                style={{
+                    pointerEvents: "all",
+                    top: 10,
+                    right: 55,
+                    opacity: this.selectedRepository ? downloadable ? 1 : 0.3 : 0,
+                    transition: "0.5s opacity ease",
+                    cursor: downloadable ? "pointer" : "default"
+                }}
+                src={download}
+                title={"Download Content"}
+                alt="Download Content"
+            />
+        );
+        if (!downloadable) {
+            return image;
+        }
+        return (
+            <a href={`./downloads/${this.selectedRepository!.id}.dmg`}>
+                {image}
+            </a>
+        );
+    }
+
     render() {
         const { MenuLoaded, RepositoriesLoaded } = this.loadManager;
         const src = this.selectedRepository ? ImageMapping.get(this.selectedRepository.props.model.id) || github : github;
@@ -64,7 +95,8 @@ export default class Main extends React.Component<{}> {
         const valid = !this.selectedRepository || !noContent;
         const border = valid ? "none" : "2px solid red";
         const borderRadius = noContent ? "50%" : undefined;
-        const opacity = this.selectedRepository ? 1 : 0;
+        const opacity = this.selectedRepository ? this.selectedRepository.isPrivate ? 0.3 : 1 : 0;
+        const cursor = this.selectedRepository ? this.selectedRepository.isPrivate ? "default" : "pointer" : "default";
         return (
             <div
                 className={'outermost'}
@@ -130,26 +162,14 @@ export default class Main extends React.Component<{}> {
                                     top: 10,
                                     right: 10,
                                     opacity,
+                                    cursor,
                                     transition: "0.5s opacity ease"
                                 }}
                                 src={github}
                                 title={"Navigate to Repository"}
                                 alt="Navigate to Repository"
                             />
-                            <img
-                                className={'link-button'}
-                                onClick={this.openRepository}
-                                style={{
-                                    pointerEvents: "none",
-                                    top: 10,
-                                    right: 55,
-                                    opacity: this.selectedRepository ? 0.3 : 0,
-                                    transition: "0.5s opacity ease"
-                                }}
-                                src={download}
-                                title={"Download Content"}
-                                alt="Download Content"
-                            />
+                            {this.potentiallyDownloadable()}
                             <img
                                 className={"display"}
                                 alt={"display"}
