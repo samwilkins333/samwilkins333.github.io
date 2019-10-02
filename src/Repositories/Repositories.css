@@ -1,0 +1,11 @@
+.repositories-container {
+    position: absolute;
+    top: 60px;
+    overflow-y: scroll;
+    width: 25%;
+    height: calc(100% - 60px);
+    margin-left: 75%;
+    transition: 0.5s ease all;
+    border-left: 1px solid black;
+    background: blue;
+}

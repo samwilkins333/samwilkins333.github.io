@@ -1,0 +1,19 @@
+.repository {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    height: 60px;
+    background: white;
+    overflow: hidden;
+    transition: 0.5s ease all;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.private {
+    margin-left: 15px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
