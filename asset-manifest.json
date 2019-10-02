@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.842d2907.chunk.css",
+    "main.js": "/static/js/main.88a065b0.chunk.js",
+    "main.js.map": "/static/js/main.88a065b0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.49e15a2c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.49e15a2c.js.map",
+    "static/js/2.baf5217b.chunk.js": "/static/js/2.baf5217b.chunk.js",
+    "static/js/2.baf5217b.chunk.js.map": "/static/js/2.baf5217b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.cce03ae280d86aa723b722a01bf546d4.js": "/precache-manifest.cce03ae280d86aa723b722a01bf546d4.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.842d2907.chunk.css.map": "/static/css/main.842d2907.chunk.css.map",
+    "static/media/array-batcher.png": "/static/media/array-batcher.8cfeca29.png",
+    "static/media/private.png": "/static/media/private.e5ada141.png",
+    "static/media/samw.png": "/static/media/samw.2158b3e5.png",
+    "static/media/scrabblemini.png": "/static/media/scrabblemini.d852888d.png"
+  }
+}
